@@ -10,6 +10,7 @@ cd DSMate
 pip install -r requirements.txt
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull mistral:latest
+sudo ufw allow 8501 # Abrir el puerto
 ```
 
 Debes de añadir al directorio files/ todos los documentos que quieras que sean utilizados por es asistente.
@@ -22,7 +23,7 @@ El script createCredentials.py crea un archivo credentials.yaml a partir de una 
 Para ejecutar el asistente utiliza este comando
 
 ```
-streamlit run app.py
+streamlit run app.py --server.port 8501
 ```
 
 Ahora puedes acceder al asistente localmente desde un navegador [http://localhost:8501/](http://localhost:8501/ "Asistente") o desde cualquier equipo con acceso a la tu red [http://IP:8501/](http://IP:8501/ "Asistente")
